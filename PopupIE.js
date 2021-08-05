@@ -11,9 +11,9 @@ $(function() {
     $text01 = $('<p>', { text:'お使いの Internet Explorer では正しく表示されない場合がございます。', css:({'margin-top': '30px', 'font-weight': 'bold', color:'#888'})});
     $text02 = $('<p>', { text:'Microsoft Edge もしくは Google Chrome の使用を推奨します。', css:({'margin-top': '10px', 'font-weight': 'bold', color:'#888'})});
     $cautionIe = $('<i>', { class :"fab fa-internet-explorer", css: ({'font-size': '60px', color: '#BBB'})});
-    $recommendEdge = $('<i>', { class :"fab fa-edge", css: ({'font-size': '60px', color: '#444', 'margin-left':'30px'})});
-    $recommendChrome = $('<i>', { class :"fab fa-chrome", css: ({'font-size': '60px', color: '#444', 'margin-left':'15px'})});
-    $iconArrow = $('<i>', { class :"fas fa-long-arrow-alt-right", css: ({'font-size': '60px', color: '#888', 'margin-left':'30px'})});
+    $recommendEdge = $('<i>', { class :"fab fa-edge", css: ({'font-size': '60px', color: '#444', 'margin-left':'40px'})});
+    $recommendChrome = $('<i>', { class :"fab fa-chrome", css: ({'font-size': '60px', color: '#444', 'margin-left':'20px'})});
+    $iconArrow = $('<i>', { class :"fas fa-long-arrow-alt-right", css: ({'font-size': '60px', color: '#888', 'margin-left':'40px'})});
     $icons = $('<div>', {class: 'icons-box', css: ({display: 'flex', 'justify-content': 'center'}),});
     
     $btn = $('<button>', {css: ({
