@@ -1,26 +1,20 @@
 $(function() {
-
-  // headerに font-awesome CDN書き込み
-  var CookieScript = document.createElement('script')
-  CookieScript.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js');
-  document.head.appendChild(CookieScript);
-  var FontawesomeScript = document.createElement('script');  
-  FontawesomeScript.setAttribute('src','https://use.fontawesome.com/releases/v5.15.3/js/all.js');
-  document.head.appendChild(FontawesomeScript);
-
-
-  // 使用ブラウザの取得
+  // 使用ブラウザの取得 ie 8以降は trident
   if (window.navigator.userAgent.toLowerCase().indexOf("trident") != -1) {
-    console.log("IE");
+    
+    // headerに font-awesome CDN書き込み
+    var FontawesomeScript = document.createElement('script');  
+    FontawesomeScript.setAttribute('src','https://use.fontawesome.com/releases/v5.15.3/js/all.js');
+    document.head.appendChild(FontawesomeScript);
 
     // DOMの生成・スタイル指定
-    $text01 = $('<p>', { text:'Internet Explorer では正しく表示されない場合がございますので', css:({'margin-top': '30px', 'font-weight': 'bold', color:'#888'})});
-    $text02 = $('<p>', { text:'Microsoft Edge もしくは Google Chrome の使用を推奨します', css:({'margin-top': '10px', 'font-weight': 'bold', color:'#888'})});
+    $text01 = $('<p>', { text:'お使いの Internet Explorer では正しく表示されない場合がございます。', css:({'margin-top': '30px', 'font-weight': 'bold', color:'#888'})});
+    $text02 = $('<p>', { text:'Microsoft Edge もしくは Google Chrome の使用を推奨します。', css:({'margin-top': '10px', 'font-weight': 'bold', color:'#888'})});
     $cautionIe = $('<i>', { class :"fab fa-internet-explorer", css: ({'font-size': '60px', color: '#BBB'})});
-    $recommendEdge = $('<i>', { class :"fab fa-edge", css: ({'font-size': '60px', color: '#444'})});
-    $recommendChrome = $('<i>', { class :"fab fa-chrome", css: ({'font-size': '60px', color: '#444'})});
-    $iconArrow = $('<i>', { class :"fas fa-long-arrow-alt-right", css: ({'font-size': '60px', color: '#888'})});
-    $icons = $('<div>', {class: 'icons-box', css: ({display: 'flex', 'justify-content': 'space-around'}),});
+    $recommendEdge = $('<i>', { class :"fab fa-edge", css: ({'font-size': '60px', color: '#444', 'margin-left':'30px'})});
+    $recommendChrome = $('<i>', { class :"fab fa-chrome", css: ({'font-size': '60px', color: '#444', 'margin-left':'15px'})});
+    $iconArrow = $('<i>', { class :"fas fa-long-arrow-alt-right", css: ({'font-size': '60px', color: '#888', 'margin-left':'30px'})});
+    $icons = $('<div>', {class: 'icons-box', css: ({display: 'flex', 'justify-content': 'center'}),});
     
     $btn = $('<button>', {css: ({
       position: 'absolute',
@@ -37,18 +31,6 @@ $(function() {
       appearance: 'none',
     })}).append($('<i>', {class :"fas fa-times-circle"}));
     
-    $alertBoxMain = $('<div>', { 
-      class:'alert-box-main',
-      css:({
-        display: 'flex',
-        'flex-direction': 'column',
-        'justify-content': 'center',
-        'max-width':'100%',
-        'max-height':'100%',
-        'text-align': 'center'
-      })
-    });
-    
     $alertBox = $('<div>', { 
       class:'alert-box',
       css:({
@@ -64,6 +46,18 @@ $(function() {
       }) 
     });
 
+    $alertBoxMain = $('<div>', { 
+      class:'alert-box-main',
+      css:({
+        display: 'flex',
+        'flex-direction': 'column',
+        'justify-content': 'center',
+        'max-width':'100%',
+        'max-height':'100%',
+        'text-align': 'center'
+      })
+    });
+
     $popupArea = $('<div>', { class:'overlay', css:({display:'none', width:'100%', height:'100%', background:'rgba(0,0,0,0.6)', position:'fixed', 'z-index':'1000000'}) });
     
     // DOMの結合
@@ -72,7 +66,7 @@ $(function() {
     $alertBox.append($btn).append($alertBoxMain);
     $popupArea.append($alertBox);
 
-    // bodyタグの最初にDOM配置
+    // bodyタグの先頭にポップアップを配置
     $('body').prepend($popupArea);
 
     // 初回閲覧時のみ表示するスクリプト
@@ -80,7 +74,7 @@ $(function() {
     $.cookie('btnFlg') == 'on' ? $('.overlay').hide() : $('.overlay').show();
     $('.alert-box button').click(function(){
       $('.overlay').fadeOut();
-      $.cookie('btnFlg', 'on', { expires: 30,path: '/' }); //cookieの保存
+      $.cookie('btnFlg', 'on', { expires: 3,path: '/' }); //cookieの保存
     });
   }
 });
