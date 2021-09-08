@@ -9,6 +9,6 @@ IE から Edge, Chrome への移行を促します．
 
 使用する際は，Cookieを制御するライブラリ  
 
-```<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>```  
+```<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>```  
 
 をPopupIE.jsの前に読み込んで下さい．

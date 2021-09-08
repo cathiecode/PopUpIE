@@ -73,10 +73,10 @@ $(function() {
 
     // 初回閲覧時のみ表示するスクリプト
     $(".overlay").show();
-    $.cookie('btnFlg') == 'on' ? $('.overlay').hide() : $('.overlay').show();
+    Cookies.get('btnFlg') == 'on' ? $('.overlay').hide() : $('.overlay').show();
     $('.alert-box button').click(function(){
       $('.overlay').fadeOut();
-      $.cookie('btnFlg', 'on', { expires: 3,path: '/' }); //cookieの保存
+      Cookies.set('btnFlg', 'on', { expires: 3,path: '/' }); //cookieの保存
     });
   }
 });
